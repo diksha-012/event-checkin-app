@@ -26,12 +26,4 @@ A full-stack real-time event check-in application built using **React Native (Ex
 | Socket.IO | Prisma ORM |
 | React Navigation | PostgreSQL |
 
----
 
-## 🛠️ Setup Instructions
-
-### 1. Clone the repo
-
-```bash
-git clone https://github.com/diksha-012/event-checkin-app.git
-cd event-checkin-app
