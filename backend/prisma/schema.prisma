@@ -1,0 +1,33 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Many-to-many relationship with events
+  events    Event[]  @relation("EventAttendees")
+}
+
+model Event {
+  id        String   @id @default(cuid())
+  name      String
+  location  String
+  startTime DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Many-to-many relationship with users
+  attendees User[]   @relation("EventAttendees")
+}
